@@ -19,7 +19,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-//e41452dc21fce9c7ce9b0f0a37627a8a
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy {
@@ -63,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             .baseUrl("https://api.openweathermap.org/data/2.5/")
             .build().create(ApiInterface::class.java)
 
-        val response=retrofit.getWeatherData(cityName ,  "e41452dc21fce9c7ce9b0f0a37627a8a" , "metric")
+        val response=retrofit.getWeatherData(cityName ,  {API_KEY} , "metric")
         response.enqueue(object : Callback<WeatherApp>{
             override fun onResponse(call: Call<WeatherApp>, response: Response<WeatherApp>) {
                 val responseBody= response.body()
